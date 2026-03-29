@@ -1,0 +1,721 @@
+PS C:\RPA\AgenticRAG> py -3.11 -m venv .venv
+[ERROR] No runtime installed that matches 3.11. Try running "py install 3.11".
+PS C:\RPA\AgenticRAG> py --version
+Python 3.14.3
+PS C:\RPA\AgenticRAG> where python
+PS C:\RPA\AgenticRAG> py list
+Tag      Name                  Managed By  Version  Alias
+-- No runtimes. Use 'py install <version>' to install one. --
+
+* These runtimes were found, but cannot be updated or uninstalled. *
+3.14  *  Python 3.14 (64-bit)  PythonCore  3.14.3
+3.12     Python 3.12 (64-bit)  PythonCore  3.12.10
+3.9      Python 3.9 (64-bit)   PythonCore  3.9.13
+PS C:\RPA\AgenticRAG> py -3.12 -m venv .venv
+>> .\.venv\Scripts\Activate.ps1
+(.venv) PS C:\RPA\AgenticRAG> python -m pip install --upgrade pip
+Requirement already satisfied: pip in c:\rpa\agenticrag\.venv\lib\site-packages (25.0.1)
+Collecting pip
+  Using cached pip-26.0.1-py3-none-any.whl.metadata (4.7 kB)
+Using cached pip-26.0.1-py3-none-any.whl (1.8 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 25.0.1
+    Uninstalling pip-25.0.1:
+      Successfully uninstalled pip-25.0.1
+Successfully installed pip-26.0.1
+(.venv) PS C:\RPA\AgenticRAG> pip install -r requirements-dev.txt
+Processing .\.
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting httpx>=0.28.1 (from local-agentic-rag==0.1.0)
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting numpy>=2.2.0 (from local-agentic-rag==0.1.0)
+  Using cached numpy-2.4.3-cp312-cp312-win_amd64.whl.metadata (6.6 kB)
+Collecting pypdf>=5.3.0 (from local-agentic-rag==0.1.0)
+  Downloading pypdf-6.9.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting python-docx>=1.1.2 (from local-agentic-rag==0.1.0)
+  Downloading python_docx-1.2.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting python-dotenv>=1.0.1 (from local-agentic-rag==0.1.0)
+  Using cached python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+Collecting pyyaml>=6.0.2 (from local-agentic-rag==0.1.0)
+  Downloading pyyaml-6.0.3-cp312-cp312-win_amd64.whl.metadata (2.4 kB)
+Collecting rich>=13.9.4 (from local-agentic-rag==0.1.0)
+  Using cached rich-14.3.3-py3-none-any.whl.metadata (18 kB)
+Collecting typer>=0.16.0 (from local-agentic-rag==0.1.0)
+  Downloading typer-0.24.1-py3-none-any.whl.metadata (16 kB)
+Collecting streamlit>=1.44.0 (from local-agentic-rag==0.1.0)
+  Downloading streamlit-1.55.0-py3-none-any.whl.metadata (9.8 kB)
+Collecting starlette>=0.46.2 (from local-agentic-rag==0.1.0)
+  Downloading starlette-1.0.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting uvicorn>=0.35.0 (from local-agentic-rag==0.1.0)
+  Downloading uvicorn-0.42.0-py3-none-any.whl.metadata (6.7 kB)
+Collecting mcp>=1.7.1 (from local-agentic-rag==0.1.0)
+  Downloading mcp-1.26.0-py3-none-any.whl.metadata (89 kB)
+Collecting pytest>=8.3.5 (from local-agentic-rag==0.1.0)
+  Using cached pytest-9.0.2-py3-none-any.whl.metadata (7.6 kB)
+Collecting pytest-cov>=6.0.0 (from local-agentic-rag==0.1.0)
+  Downloading pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)
+Collecting reportlab>=4.4.0 (from local-agentic-rag==0.1.0)
+  Downloading reportlab-4.4.10-py3-none-any.whl.metadata (1.7 kB)
+Collecting anyio (from httpx>=0.28.1->local-agentic-rag==0.1.0)
+  Downloading anyio-4.13.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting certifi (from httpx>=0.28.1->local-agentic-rag==0.1.0)
+  Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx>=0.28.1->local-agentic-rag==0.1.0)
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx>=0.28.1->local-agentic-rag==0.1.0)
+  Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.28.1->local-agentic-rag==0.1.0)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting httpx-sse>=0.4 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)
+Collecting jsonschema>=4.20.0 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting pydantic-settings>=2.5.2 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading pydantic_settings-2.13.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting pydantic<3.0.0,>=2.11.0 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading pyjwt-2.12.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting python-multipart>=0.0.9 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading python_multipart-0.0.22-py3-none-any.whl.metadata (1.8 kB)
+Collecting pywin32>=310 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading pywin32-311-cp312-cp312-win_amd64.whl.metadata (10 kB)
+Collecting sse-starlette>=1.6.1 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading sse_starlette-3.3.4-py3-none-any.whl.metadata (14 kB)
+Collecting typing-extensions>=4.9.0 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.1 (from mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Using cached typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.11.0->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.41.5 (from pydantic<3.0.0,>=2.11.0->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading pydantic_core-2.41.5-cp312-cp312-win_amd64.whl.metadata (7.4 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=4.20.0->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.20.0->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=4.20.0->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=4.20.0->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading rpds_py-0.30.0-cp312-cp312-win_amd64.whl.metadata (4.2 kB)
+Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading cryptography-46.0.6-cp311-abi3-win_amd64.whl.metadata (5.7 kB)
+Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Downloading cffi-2.0.0-cp312-cp312-win_amd64.whl.metadata (2.6 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp>=1.7.1->local-agentic-rag==0.1.0)
+  Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting colorama>=0.4 (from pytest>=8.3.5->local-agentic-rag==0.1.0)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting iniconfig>=1.0.1 (from pytest>=8.3.5->local-agentic-rag==0.1.0)
+  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging>=22 (from pytest>=8.3.5->local-agentic-rag==0.1.0)
+  Using cached packaging-26.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting pluggy<2,>=1.5 (from pytest>=8.3.5->local-agentic-rag==0.1.0)
+  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest>=8.3.5->local-agentic-rag==0.1.0)
+  Using cached pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov>=6.0.0->local-agentic-rag==0.1.0)
+  Downloading coverage-7.13.5-cp312-cp312-win_amd64.whl.metadata (8.7 kB)
+Collecting lxml>=3.1.0 (from python-docx>=1.1.2->local-agentic-rag==0.1.0)
+  Downloading lxml-6.0.2-cp312-cp312-win_amd64.whl.metadata (3.7 kB)
+Collecting pillow>=9.0.0 (from reportlab>=4.4.0->local-agentic-rag==0.1.0)
+  Downloading pillow-12.1.1-cp312-cp312-win_amd64.whl.metadata (9.0 kB)
+Collecting charset-normalizer (from reportlab>=4.4.0->local-agentic-rag==0.1.0)
+  Downloading charset_normalizer-3.4.6-cp312-cp312-win_amd64.whl.metadata (41 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.9.4->local-agentic-rag==0.1.0)
+  Using cached markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.9.4->local-agentic-rag==0.1.0)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting altair!=5.4.0,!=5.4.1,<7,>=4.0 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading altair-6.0.0-py3-none-any.whl.metadata (11 kB)
+Collecting blinker<2,>=1.5.0 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting cachetools<8,>=5.5 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading cachetools-7.0.5-py3-none-any.whl.metadata (5.6 kB)
+Collecting click<9,>=7.0 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Using cached click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting gitpython!=3.1.19,<4,>=3.0.7 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading gitpython-3.1.46-py3-none-any.whl.metadata (13 kB)
+Collecting pandas<3,>=1.4.0 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading pandas-2.3.3-cp312-cp312-win_amd64.whl.metadata (19 kB)
+Collecting pydeck<1,>=0.8.0b4 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading pydeck-0.9.1-py2.py3-none-any.whl.metadata (4.1 kB)
+Collecting protobuf<7,>=3.20 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading protobuf-6.33.6-cp310-abi3-win_amd64.whl.metadata (593 bytes)
+Collecting pyarrow>=7.0 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading pyarrow-23.0.1-cp312-cp312-win_amd64.whl.metadata (3.1 kB)
+Collecting requests<3,>=2.27 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading requests-2.33.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting tenacity<10,>=8.1.0 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
+Collecting toml<2,>=0.10.1 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting tornado!=6.5.0,<7,>=6.0.3 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading tornado-6.5.5-cp39-abi3-win_amd64.whl.metadata (2.9 kB)
+Collecting watchdog<7,>=2.1.5 (from streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading watchdog-6.0.0-py3-none-win_amd64.whl.metadata (44 kB)
+Collecting jinja2 (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting narwhals>=1.27.1 (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading narwhals-2.18.1-py3-none-any.whl.metadata (14 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.19,<4,>=3.0.7->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting python-dateutil>=2.8.2 (from pandas<3,>=1.4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas<3,>=1.4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading pytz-2026.1.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas<3,>=1.4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Using cached tzdata-2025.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting urllib3<3,>=1.26 (from requests<3,>=2.27->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Using cached markupsafe-3.0.3-cp312-cp312-win_amd64.whl.metadata (2.8 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas<3,>=1.4.0->streamlit>=1.44.0->local-agentic-rag==0.1.0)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting shellingham>=1.3.0 (from typer>=0.16.0->local-agentic-rag==0.1.0)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting annotated-doc>=0.0.2 (from typer>=0.16.0->local-agentic-rag==0.1.0)
+  Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading mcp-1.26.0-py3-none-any.whl (233 kB)
+Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+Downloading pydantic_core-2.41.5-cp312-cp312-win_amd64.whl (2.0 MB)
+   ---------------------------------------- 2.0/2.0 MB 2.2 MB/s  0:00:00
+Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading anyio-4.13.0-py3-none-any.whl (114 kB)
+Downloading httpx_sse-0.4.3-py3-none-any.whl (9.0 kB)
+Downloading idna-3.11-py3-none-any.whl (71 kB)
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Using cached numpy-2.4.3-cp312-cp312-win_amd64.whl (12.3 MB)
+Downloading pydantic_settings-2.13.1-py3-none-any.whl (58 kB)
+Downloading pyjwt-2.12.1-py3-none-any.whl (29 kB)
+Downloading cryptography-46.0.6-cp311-abi3-win_amd64.whl (3.5 MB)
+   ---------------------------------------- 3.5/3.5 MB 2.9 MB/s  0:00:01
+Downloading cffi-2.0.0-cp312-cp312-win_amd64.whl (183 kB)
+Downloading pypdf-6.9.2-py3-none-any.whl (333 kB)
+Using cached pytest-9.0.2-py3-none-any.whl (374 kB)
+Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Using cached packaging-26.0-py3-none-any.whl (74 kB)
+Using cached pygments-2.19.2-py3-none-any.whl (1.2 MB)
+Downloading pytest_cov-7.1.0-py3-none-any.whl (22 kB)
+Downloading coverage-7.13.5-cp312-cp312-win_amd64.whl (222 kB)
+Downloading python_docx-1.2.0-py3-none-any.whl (252 kB)
+Downloading lxml-6.0.2-cp312-cp312-win_amd64.whl (4.0 MB)
+   ---------------------------------------- 4.0/4.0 MB 3.7 MB/s  0:00:01
+Using cached python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+Downloading python_multipart-0.0.22-py3-none-any.whl (24 kB)
+Downloading pywin32-311-cp312-cp312-win_amd64.whl (9.5 MB)
+   ---------------------------------------- 9.5/9.5 MB 5.1 MB/s  0:00:01
+Downloading pyyaml-6.0.3-cp312-cp312-win_amd64.whl (154 kB)
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading reportlab-4.4.10-py3-none-any.whl (2.0 MB)
+   ---------------------------------------- 2.0/2.0 MB 6.0 MB/s  0:00:00
+Downloading pillow-12.1.1-cp312-cp312-win_amd64.whl (7.0 MB)
+   ---------------------------------------- 7.0/7.0 MB 6.2 MB/s  0:00:01
+Using cached rich-14.3.3-py3-none-any.whl (310 kB)
+Using cached markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading rpds_py-0.30.0-cp312-cp312-win_amd64.whl (240 kB)
+Downloading sse_starlette-3.3.4-py3-none-any.whl (14 kB)
+Downloading starlette-1.0.0-py3-none-any.whl (72 kB)
+Downloading streamlit-1.55.0-py3-none-any.whl (9.1 MB)
+   ---------------------------------------- 9.1/9.1 MB 6.5 MB/s  0:00:01
+Downloading altair-6.0.0-py3-none-any.whl (795 kB)
+   ---------------------------------------- 795.4/795.4 kB 6.8 MB/s  0:00:00
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading cachetools-7.0.5-py3-none-any.whl (13 kB)
+Using cached click-8.3.1-py3-none-any.whl (108 kB)
+Downloading gitpython-3.1.46-py3-none-any.whl (208 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Downloading pandas-2.3.3-cp312-cp312-win_amd64.whl (11.0 MB)
+   ---------------------------------------- 11.0/11.0 MB 7.4 MB/s  0:00:01
+Downloading protobuf-6.33.6-cp310-abi3-win_amd64.whl (437 kB)
+Downloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)
+   ---------------------------------------- 6.9/6.9 MB 8.7 MB/s  0:00:00
+Downloading requests-2.33.0-py3-none-any.whl (65 kB)
+Downloading charset_normalizer-3.4.6-cp312-cp312-win_amd64.whl (154 kB)
+Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading tornado-6.5.5-cp39-abi3-win_amd64.whl (448 kB)
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+Downloading watchdog-6.0.0-py3-none-win_amd64.whl (79 kB)
+Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached markupsafe-3.0.3-cp312-cp312-win_amd64.whl (15 kB)
+Downloading narwhals-2.18.1-py3-none-any.whl (444 kB)
+Downloading pyarrow-23.0.1-cp312-cp312-win_amd64.whl (27.6 MB)
+   ---------------------------------------- 27.6/27.6 MB 13.6 MB/s  0:00:02
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.1.post1-py2.py3-none-any.whl (510 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading typer-0.24.1-py3-none-any.whl (56 kB)
+Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Using cached typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Using cached tzdata-2025.3-py2.py3-none-any.whl (348 kB)
+Downloading uvicorn-0.42.0-py3-none-any.whl (68 kB)
+Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Building wheels for collected packages: local-agentic-rag
+  Building wheel for local-agentic-rag (pyproject.toml) ... done
+  Created wheel for local-agentic-rag: filename=local_agentic_rag-0.1.0-py3-none-any.whl size=67389 sha256=18e8c6a211bae7de6da423de45f698fd7e95348da66e406ae10d3af0332c96f2
+  Stored in directory: C:\Users\brian\AppData\Local\Temp\pip-ephem-wheel-cache-bu_t2h_s\wheels\6c\90\b3\b43f674411b79c9907fa0233748bc17a1d27ff94bfbd1c69de
+Successfully built local-agentic-rag
+Installing collected packages: pywin32, pytz, watchdog, urllib3, tzdata, typing-extensions, tornado, toml, tenacity, smmap, six, shellingham, rpds-py, pyyaml, python-multipart, python-dotenv, pypdf, pyjwt, pygments, pycparser, pyarrow, protobuf, pluggy, pillow, packaging, numpy, narwhals, mdurl, MarkupSafe, lxml, iniconfig, idna, httpx-sse, h11, coverage, colorama, charset-normalizer, certifi, cachetools, blinker, attrs, annotated-types, annotated-doc, typing-inspection, requests, reportlab, referencing, python-docx, python-dateutil, pytest, pydantic-core, markdown-it-py, jinja2, httpcore, gitdb, click, cffi, anyio, uvicorn, starlette, rich, pytest-cov, pydeck, pydantic, pandas, jsonschema-specifications, httpx, gitpython, cryptography, typer, sse-starlette, pydantic-settings, jsonschema, mcp, local-agentic-rag, altair, streamlit
+Successfully installed MarkupSafe-3.0.3 altair-6.0.0 annotated-doc-0.0.4 annotated-types-0.7.0 anyio-4.13.0 attrs-26.1.0 blinker-1.9.0 cachetools-7.0.5 certifi-2026.2.25 cffi-2.0.0 charset-normalizer-3.4.6 click-8.3.1 colorama-0.4.6 coverage-7.13.5 cryptography-46.0.6 gitdb-4.0.12 gitpython-3.1.46 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 httpx-sse-0.4.3 idna-3.11 iniconfig-2.3.0 jinja2-3.1.6 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 local-agentic-rag-0.1.0 lxml-6.0.2 markdown-it-py-4.0.0 mcp-1.26.0 mdurl-0.1.2 narwhals-2.18.1 numpy-2.4.3 packaging-26.0 pandas-2.3.3 pillow-12.1.1 pluggy-1.6.0 protobuf-6.33.6 pyarrow-23.0.1 pycparser-3.0 pydantic-2.12.5 pydantic-core-2.41.5 pydantic-settings-2.13.1 pydeck-0.9.1 pygments-2.19.2 pyjwt-2.12.1 pypdf-6.9.2 pytest-9.0.2 pytest-cov-7.1.0 python-dateutil-2.9.0.post0 python-docx-1.2.0 python-dotenv-1.2.2 python-multipart-0.0.22 pytz-2026.1.post1 pywin32-311 pyyaml-6.0.3 referencing-0.37.0 reportlab-4.4.10 requests-2.33.0 rich-14.3.3 rpds-py-0.30.0 shellingham-1.5.4 six-1.17.0 smmap-5.0.3 sse-starlette-3.3.4 starlette-1.0.0 streamlit-1.55.0 tenacity-9.1.4 toml-0.10.2 tornado-6.5.5 typer-0.24.1 typing-extensions-4.15.0 typing-inspection-0.4.2 tzdata-2025.3 urllib3-2.6.3 uvicorn-0.42.0 watchdog-6.0.0
+(.venv) PS C:\RPA\AgenticRAG> cd web
+(.venv) PS C:\RPA\AgenticRAG\web> cd install
+cd : Cannot find path 'C:\RPA\AgenticRAG\web\install' because it does not exist.
+At line:1 char:1
++ cd install
++ ~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\RPA\AgenticRAG\web\install:String) [Set-Location], ItemNotFoundExcep
+   tion
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+(.venv) PS C:\RPA\AgenticRAG\web> npm install
+npm : The term 'npm' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ npm install
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (npm:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+(.venv) PS C:\RPA\AgenticRAG\web> winget install OpenJS.NodeJS.LTS
+The `msstore` source requires that you view the following agreements before using.
+Terms of Transaction: https://aka.ms/microsoft-store-terms-of-transaction
+The source requires the current machine's 2-letter geographic region to be sent to the backend service to function properly (ex. "US").
+
+Do you agree to all the source agreements terms?
+[Y] Yes  [N] No: Y
+Found Node.js (LTS) [OpenJS.NodeJS.LTS] Version 24.14.1
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://nodejs.org/dist/v24.14.1/node-v24.14.1-x64.msi
+  ██████████████████████████████  30.8 MB / 30.8 MB
+Successfully verified installer hash
+Starting package install...
+The installer will request to run as administrator. Expect a prompt.
+Successfully installed
+(.venv) PS C:\RPA\AgenticRAG\web>
+
+*************************
+Powershell close and new 
+*************************
+
+PS C:\RPA\AgenticRAG> node -v
+v24.14.1
+PS C:\RPA\AgenticRAG> npm -v
+11.11.0
+PS C:\RPA\AgenticRAG> cd web
+PS C:\RPA\AgenticRAG\web> npm install
+
+added 160 packages, and audited 161 packages in 10s
+
+27 packages are looking for funding
+  run `npm fund` for details
+
+1 high severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+npm notice
+npm notice New minor version of npm available! 11.11.0 -> 11.12.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1
+npm notice To update run: npm install -g npm@11.12.1
+npm notice
+PS C:\RPA\AgenticRAG\web> npm run build
+
+> local-agentic-rag-web@0.1.0 build
+> tsc && vite build
+
+vite v6.4.1 building for production...
+✓ 1663 modules transformed.
+dist/index.html                   0.42 kB │ gzip:  0.28 kB
+dist/assets/index-BBGiPEf0.css   23.45 kB │ gzip:  5.48 kB
+dist/assets/index-fsKfvviI.js   289.16 kB │ gzip: 86.98 kB
+✓ built in 3.17s
+PS C:\RPA\AgenticRAG\web> cd..
+PS C:\RPA\AgenticRAG> .\.venv\Scripts\Activate.ps1
+(.venv) PS C:\RPA\AgenticRAG> local-rag bootstrap
+┌───────────────────────────────────────── Traceback (most recent call last) ─────────────────────────────────────────┐
+│ C:\RPA\AgenticRAG\.venv\Lib\site-packages\local_agentic_rag\cli.py:35 in bootstrap                                  │
+│                                                                                                                     │
+│    32 │   pull_missing: bool = typer.Option(False, help="Attempt to pull missing Ollama models                      │
+│    33 ) -> None:                                                                                                    │
+│    34 │   app_config = load_config(config)                                                                          │
+│ >  35 │   report = run_bootstrap_checks(app_config, pull_missing=pull_missing)                                      │
+│    36 │   table = Table(title="Bootstrap checks")                                                                   │
+│    37 │   table.add_column("Check")                                                                                 │
+│    38 │   table.add_column("Status")                                                                                │
+│                                                                                                                     │
+│ C:\RPA\AgenticRAG\.venv\Lib\site-packages\local_agentic_rag\bootstrap.py:31 in run_bootstrap_checks                 │
+│                                                                                                                     │
+│    28 │   if not python_ok:                                                                                         │
+│    29 │   │   notes.append("Python 3.11+ is required.")                                                             │
+│    30 │                                                                                                             │
+│ >  31 │   ollama_installed = subprocess.run(                                                                        │
+│    32 │   │   ["which", "ollama"],                                                                                  │
+│    33 │   │   check=False,                                                                                          │
+│    34 │   │   capture_output=True,                                                                                  │
+│                                                                                                                     │
+│ C:\Users\brian\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:548 in run                                 │
+│                                                                                                                     │
+│    545 │   │   kwargs['stdout'] = PIPE                                                                              │
+│    546 │   │   kwargs['stderr'] = PIPE                                                                              │
+│    547 │                                                                                                            │
+│ >  548 │   with Popen(*popenargs, **kwargs) as process:                                                             │
+│    549 │   │   try:                                                                                                 │
+│    550 │   │   │   stdout, stderr = process.communicate(input, timeout=timeout)                                     │
+│    551 │   │   except TimeoutExpired as exc:                                                                        │
+│                                                                                                                     │
+│ C:\Users\brian\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1026 in __init__                           │
+│                                                                                                                     │
+│   1023 │   │   │   │   │   self.stderr = io.TextIOWrapper(self.stderr,                                              │
+│   1024 │   │   │   │   │   │   │   encoding=encoding, errors=errors)                                                │
+│   1025 │   │   │                                                                                                    │
+│ > 1026 │   │   │   self._execute_child(args, executable, preexec_fn, close_fds,                                     │
+│   1027 │   │   │   │   │   │   │   │   pass_fds, cwd, env,                                                          │
+│   1028 │   │   │   │   │   │   │   │   startupinfo, creationflags, shell,                                           │
+│   1029 │   │   │   │   │   │   │   │   p2cread, p2cwrite,                                                           │
+│                                                                                                                     │
+│ C:\Users\brian\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1538 in _execute_child                     │
+│                                                                                                                     │
+│   1535 │   │   │                                                                                                    │
+│   1536 │   │   │   # Start the process                                                                              │
+│   1537 │   │   │   try:                                                                                             │
+│ > 1538 │   │   │   │   hp, ht, pid, tid = _winapi.CreateProcess(executable, args,                                   │
+│   1539 │   │   │   │   │   │   │   │   │   │    # no special security                                               │
+│   1540 │   │   │   │   │   │   │   │   │   │    None, None,                                                         │
+│   1541 │   │   │   │   │   │   │   │   │   │    int(not close_fds),                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+(.venv) PS C:\RPA\AgenticRAG> pytest tests/unit/test_bootstrap.py tests/unit/test_cli.py -q
+..                                                                                                                                                                                                                                                     [100%]
+(.venv) PS C:\RPA\AgenticRAG> local-rag bootstrap
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ C:\RPA\AgenticRAG\.venv\Lib\site-packages\local_agentic_rag\cli.py:35 in bootstrap                                                                                                                                                                        │
+│                                                                                                                                                                                                                                                           │
+│    32 │   pull_missing: bool = typer.Option(False, help="Attempt to pull missing Ollama models                                                                                                                                                            │
+│    33 ) -> None:                                                                                                                                                                                                                                          │
+│    34 │   app_config = load_config(config)                                                                                                                                                                                                                │
+│ >  35 │   report = run_bootstrap_checks(app_config, pull_missing=pull_missing)                                                                                                                                                                            │
+│    36 │   table = Table(title="Bootstrap checks")                                                                                                                                                                                                         │
+│    37 │   table.add_column("Check")                                                                                                                                                                                                                       │
+│    38 │   table.add_column("Status")                                                                                                                                                                                                                      │
+│                                                                                                                                                                                                                                                           │
+│ C:\RPA\AgenticRAG\.venv\Lib\site-packages\local_agentic_rag\bootstrap.py:31 in run_bootstrap_checks                                                                                                                                                       │
+│                                                                                                                                                                                                                                                           │
+│    28 │   if not python_ok:                                                                                                                                                                                                                               │
+│    29 │   │   notes.append("Python 3.11+ is required.")                                                                                                                                                                                                   │
+│    30 │                                                                                                                                                                                                                                                   │
+│ >  31 │   ollama_installed = subprocess.run(                                                                                                                                                                                                              │
+│    32 │   │   ["which", "ollama"],                                                                                                                                                                                                                        │
+│    33 │   │   check=False,                                                                                                                                                                                                                                │
+│    34 │   │   capture_output=True,                                                                                                                                                                                                                        │
+│                                                                                                                                                                                                                                                           │
+│ C:\Users\brian\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:548 in run                                                                                                                                                                       │
+│                                                                                                                                                                                                                                                           │
+│    545 │   │   kwargs['stdout'] = PIPE                                                                                                                                                                                                                    │
+│    546 │   │   kwargs['stderr'] = PIPE                                                                                                                                                                                                                    │
+│    547 │                                                                                                                                                                                                                                                  │
+│ >  548 │   with Popen(*popenargs, **kwargs) as process:                                                                                                                                                                                                   │
+│    549 │   │   try:                                                                                                                                                                                                                                       │
+│    550 │   │   │   stdout, stderr = process.communicate(input, timeout=timeout)                                                                                                                                                                           │
+│    551 │   │   except TimeoutExpired as exc:                                                                                                                                                                                                              │
+│                                                                                                                                                                                                                                                           │
+│ C:\Users\brian\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1026 in __init__                                                                                                                                                                 │
+│                                                                                                                                                                                                                                                           │
+│   1023 │   │   │   │   │   self.stderr = io.TextIOWrapper(self.stderr,                                                                                                                                                                                    │
+│   1024 │   │   │   │   │   │   │   encoding=encoding, errors=errors)                                                                                                                                                                                      │
+│   1025 │   │   │                                                                                                                                                                                                                                          │
+│ > 1026 │   │   │   self._execute_child(args, executable, preexec_fn, close_fds,                                                                                                                                                                           │
+│   1027 │   │   │   │   │   │   │   │   pass_fds, cwd, env,                                                                                                                                                                                                │
+│   1028 │   │   │   │   │   │   │   │   startupinfo, creationflags, shell,                                                                                                                                                                                 │
+│   1029 │   │   │   │   │   │   │   │   p2cread, p2cwrite,                                                                                                                                                                                                 │
+│                                                                                                                                                                                                                                                           │
+│ C:\Users\brian\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1538 in _execute_child                                                                                                                                                           │
+│                                                                                                                                                                                                                                                           │
+│   1535 │   │   │                                                                                                                                                                                                                                          │
+│   1536 │   │   │   # Start the process                                                                                                                                                                                                                    │
+│   1537 │   │   │   try:                                                                                                                                                                                                                                   │
+│ > 1538 │   │   │   │   hp, ht, pid, tid = _winapi.CreateProcess(executable, args,                                                                                                                                                                         │
+│   1539 │   │   │   │   │   │   │   │   │   │    # no special security                                                                                                                                                                                     │
+│   1540 │   │   │   │   │   │   │   │   │   │    None, None,                                                                                                                                                                                               │
+│   1541 │   │   │   │   │   │   │   │   │   │    int(not close_fds),                                                                                                                                                                                       │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+(.venv) PS C:\RPA\AgenticRAG> .\.venv\Scripts\Activate.ps1
+(.venv) PS C:\RPA\AgenticRAG> pip unistall -y local-agentic-rag
+ERROR: unknown command "unistall" - maybe you meant "uninstall"
+(.venv) PS C:\RPA\AgenticRAG> pip uninstall -y local-agentic-rag
+Found existing installation: local-agentic-rag 0.1.0
+Uninstalling local-agentic-rag-0.1.0:
+  Successfully uninstalled local-agentic-rag-0.1.0
+(.venv) PS C:\RPA\AgenticRAG> pip install -e .
+Obtaining file:///C:/RPA/AgenticRAG
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Requirement already satisfied: httpx>=0.28.1 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (0.28.1)
+Requirement already satisfied: numpy>=2.2.0 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (2.4.3)
+Requirement already satisfied: pypdf>=5.3.0 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (6.9.2)
+Requirement already satisfied: python-docx>=1.1.2 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (1.2.0)
+Requirement already satisfied: python-dotenv>=1.0.1 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (1.2.2)
+Requirement already satisfied: pyyaml>=6.0.2 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (6.0.3)
+Requirement already satisfied: rich>=13.9.4 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (14.3.3)
+Requirement already satisfied: typer>=0.16.0 in .\.venv\Lib\site-packages (from local-agentic-rag==0.1.0) (0.24.1)
+Requirement already satisfied: anyio in .\.venv\Lib\site-packages (from httpx>=0.28.1->local-agentic-rag==0.1.0) (4.13.0)
+Requirement already satisfied: certifi in .\.venv\Lib\site-packages (from httpx>=0.28.1->local-agentic-rag==0.1.0) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in .\.venv\Lib\site-packages (from httpx>=0.28.1->local-agentic-rag==0.1.0) (1.0.9)
+Requirement already satisfied: idna in .\.venv\Lib\site-packages (from httpx>=0.28.1->local-agentic-rag==0.1.0) (3.11)
+Requirement already satisfied: h11>=0.16 in .\.venv\Lib\site-packages (from httpcore==1.*->httpx>=0.28.1->local-agentic-rag==0.1.0) (0.16.0)
+Requirement already satisfied: lxml>=3.1.0 in .\.venv\Lib\site-packages (from python-docx>=1.1.2->local-agentic-rag==0.1.0) (6.0.2)
+Requirement already satisfied: typing_extensions>=4.9.0 in .\.venv\Lib\site-packages (from python-docx>=1.1.2->local-agentic-rag==0.1.0) (4.15.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in .\.venv\Lib\site-packages (from rich>=13.9.4->local-agentic-rag==0.1.0) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in .\.venv\Lib\site-packages (from rich>=13.9.4->local-agentic-rag==0.1.0) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in .\.venv\Lib\site-packages (from markdown-it-py>=2.2.0->rich>=13.9.4->local-agentic-rag==0.1.0) (0.1.2)
+Requirement already satisfied: click>=8.2.1 in .\.venv\Lib\site-packages (from typer>=0.16.0->local-agentic-rag==0.1.0) (8.3.1)
+Requirement already satisfied: shellingham>=1.3.0 in .\.venv\Lib\site-packages (from typer>=0.16.0->local-agentic-rag==0.1.0) (1.5.4)
+Requirement already satisfied: annotated-doc>=0.0.2 in .\.venv\Lib\site-packages (from typer>=0.16.0->local-agentic-rag==0.1.0) (0.0.4)
+Requirement already satisfied: colorama in .\.venv\Lib\site-packages (from click>=8.2.1->typer>=0.16.0->local-agentic-rag==0.1.0) (0.4.6)
+Building wheels for collected packages: local-agentic-rag
+  Building editable for local-agentic-rag (pyproject.toml) ... done
+  Created wheel for local-agentic-rag: filename=local_agentic_rag-0.1.0-0.editable-py3-none-any.whl size=6692 sha256=43f5b97783c1ca4806b888841928a65ee83e1b13c4c42330fd82abde1175d5ab
+  Stored in directory: C:\Users\brian\AppData\Local\Temp\pip-ephem-wheel-cache-9ybrek0l\wheels\6c\90\b3\b43f674411b79c9907fa0233748bc17a1d27ff94bfbd1c69de
+Successfully built local-agentic-rag
+Installing collected packages: local-agentic-rag
+Successfully installed local-agentic-rag-0.1.0
+(.venv) PS C:\RPA\AgenticRAG> python -c "import local_agentic_rag,inspect; print(local_agentic_rag.__file__)"
+C:\RPA\AgenticRAG\src\local_agentic_rag\__init__.py
+(.venv) PS C:\RPA\AgenticRAG> local-rag bootstrap
+                Bootstrap checks
+┌────────────────────────────────────┬─────────┐
+│ Check                              │ Status  │
+├────────────────────────────────────┼─────────┤
+│ Python >= 3.11                     │ ok      │
+│ Ollama installed                   │ missing │
+│ Chat model `qwen3:8b`              │ missing │
+│ Embedding model `nomic-embed-text` │ missing │
+│ Ingest strategy                    │ local   │
+│ Vector backend `faiss`             │ missing │
+└────────────────────────────────────┴─────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── Notes ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Ollama is not installed. Install it before runtime.                                                                                                                                                                                                       │
+│ FAISS backend selected but faiss-cpu is not installed in this environment.                                                                                                                                                                                │
+│ Configured ingest mode: local heuristic chunking and metadata.                                                                                                                                                                                            │
+│ Configured model profile: profile=balanced chat_model=qwen3:8b embedding_model=nomic-embed-text                                                                                                                                                           │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+(.venv) PS C:\RPA\AgenticRAG>
+(.venv) PS C:\RPA\AgenticRAG> ollama --version
+ollama : The term 'ollama' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ollama --version
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (ollama:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+(.venv) PS C:\RPA\AgenticRAG>
+
+
+*************************
+Powershell close and new 
+*************************
+
+
+PS C:\RPA\AgenticRAG> ollama --version
+ollama version is 0.18.3
+PS C:\RPA\AgenticRAG> cd C:\RPA\AgenticRAG
+PS C:\RPA\AgenticRAG> .\.venv\Scripts\Activate.ps1
+(.venv) PS C:\RPA\AgenticRAG> ollama pull qwen:4b
+pulling manifest
+pulling 46bb65206e0e: 100% ▕██████████████████████████████████████████████████████████▏ 2.3 GB
+pulling 41c2cf8c272f: 100% ▕██████████████████████████████████████████████████████████▏ 7.3 KB
+pulling 1da0581fd4ce: 100% ▕██████████████████████████████████████████████████████████▏  130 B
+pulling f02dd72bb242: 100% ▕██████████████████████████████████████████████████████████▏   59 B
+pulling b861bd365e67: 100% ▕██████████████████████████████████████████████████████████▏  483 B
+verifying sha256 digest
+writing manifest
+success
+(.venv) PS C:\RPA\AgenticRAG> ollama pull qwen3:4b
+pulling manifest
+pulling 3e4cb1417446: 100% ▕██████████████████████████████████████████████████████████▏ 2.5 GB
+pulling 2d54db2b9bb2: 100% ▕██████████████████████████████████████████████████████████▏ 1.5 KB
+pulling d18a5cc71b84: 100% ▕██████████████████████████████████████████████████████████▏  11 KB
+pulling cff3f395ef37: 100% ▕██████████████████████████████████████████████████████████▏  120 B
+pulling e18a783aae55: 100% ▕██████████████████████████████████████████████████████████▏  487 B
+verifying sha256 digest
+writing manifest
+success
+(.venv) PS C:\RPA\AgenticRAG> ollama list
+NAME        ID              SIZE      MODIFIED
+qwen3:4b    359d7dd4bcda    2.5 GB    About a minute ago
+qwen:4b     d53d04290064    2.3 GB    About a minute ago
+(.venv) PS C:\RPA\AgenticRAG> ollama rm qwen:4b
+deleted 'qwen:4b'
+(.venv) PS C:\RPA\AgenticRAG> ollama list
+NAME        ID              SIZE      MODIFIED
+qwen3:4b    359d7dd4bcda    2.5 GB    About a minute ago
+(.venv) PS C:\RPA\AgenticRAG> ollama pull nomic-embed-text
+pulling manifest
+pulling 970aa74c0a90: 100% ▕██████████████████████████████████████████████████████████▏ 274 MB
+pulling c71d239df917: 100% ▕██████████████████████████████████████████████████████████▏  11 KB
+pulling ce4a164fc046: 100% ▕██████████████████████████████████████████████████████████▏   17 B
+pulling 31df23ea7daa: 100% ▕██████████████████████████████████████████████████████████▏  420 B
+verifying sha256 digest
+writing manifest
+success
+(.venv) PS C:\RPA\AgenticRAG> local-rag bootstrap --config config.windows.yaml
+               Bootstrap checks
+┌────────────────────────────────────┬────────┐
+│ Check                              │ Status │
+├────────────────────────────────────┼────────┤
+│ Python >= 3.11                     │ ok     │
+│ Ollama installed                   │ ok     │
+│ Chat model `qwen3:4b`              │ ok     │
+│ Embedding model `nomic-embed-text` │ ok     │
+│ Ingest strategy                    │ local  │
+│ Vector backend `numpy`             │ ok     │
+└────────────────────────────────────┴────────┘
+┌─────────────────────────────────────────────────────── Notes ───────────────────────────────────────────────────────┐
+│ Configured ingest mode: local heuristic chunking and metadata.                                                      │
+│ Configured model profile: profile=small chat_model=qwen3:4b embedding_model=nomic-embed-text                        │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+(.venv) PS C:\RPA\AgenticRAG> local-rag ingest --config config.windows.yaml
+┌──────────────────────────────────────────────────── Ingest mode ────────────────────────────────────────────────────┐
+│ Local heuristic ingest is active.                                                                                   │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────── Agent mode ─────────────────────────────────────────────────────┐
+│ configured=middleweight | active=middleweight                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+  Ingestion report
+┌───────────┬───────┐
+│ Category  │ Count │
+├───────────┼───────┤
+│ Processed │ 4     │
+│ Skipped   │ 0     │
+│ Deleted   │ 0     │
+│ Errors    │ 0     │
+└───────────┴───────┘
+(.venv) PS C:\RPA\AgenticRAG> local-rag serve-web --config config.windows.yaml
+←[32mINFO←[0m:     Started server process [←[36m19392←[0m]
+←[32mINFO←[0m:     Waiting for application startup.
+←[32mINFO←[0m:     Application startup complete.
+←[32mINFO←[0m:     Uvicorn running on ←[1mhttp://127.0.0.1:3000←[0m (Press CTRL+C to quit)
+
+closed and repopened
+
+PS C:\RPA\AgenticRAG> ollama --version
+ollama version is 0.18.3
+PS C:\RPA\AgenticRAG> ollama list                                                                                       NAME                       ID              SIZE      MODIFIED                                                           nomic-embed-text:latest    0a109f422b47    274 MB    About an hour ago                                                  qwen3:4b                   359d7dd4bcda    2.5 GB    About an hour ago                                                  PS C:\RPA\AgenticRAG> curl http://127.0.0.1:11434/api/tags
+
+Security Warning: Script Execution Risk
+Invoke-WebRequest parses the content of the web page. Script code in the web page might be run when the page is
+parsed.
+      RECOMMENDED ACTION:
+      Use the -UseBasicParsing switch to avoid script code execution.
+
+      Do you want to continue?
+
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): N
+curl : Operation cancelled due to security concerns. Use -UseBasicParsing parameter for safe HTML parsing without
+script execution.
+At line:1 char:1
++ curl http://127.0.0.1:11434/api/tags
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (http://127.0.0.1:11434/api/tags:Uri) [Invoke-WebRequest], InvalidOperati
+   onException
+    + FullyQualifiedErrorId : WebCmdletIEParsingDeclined,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+PS C:\RPA\AgenticRAG> Invoke-WebRequest -UseBasicParsing http://127.0.0.1:11434/api/tags
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"models":[{"name":"nomic-embed-text:latest","model":"nomic-embed-text:latest","modified_at":"2026-
+                    03-29T12:02:07.4277574+02:00","size":274302450,"digest":"0a109f422b47e3a30ba2b10eca18548e944e8a2307
+                    3e...
+RawContent        : HTTP/1.1 200 OK
+                    Content-Length: 690
+                    Content-Type: application/json; charset=utf-8
+                    Date: Sun, 29 Mar 2026 11:05:51 GMT
+
+                    {"models":[{"name":"nomic-embed-text:latest","model":"nomic-embed-text:lates...
+Forms             :
+Headers           : {[Content-Length, 690], [Content-Type, application/json; charset=utf-8], [Date, Sun, 29 Mar 2026
+                    11:05:51 GMT]}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        :
+RawContentLength  : 690
+
+
+
+PS C:\RPA\AgenticRAG> .\.venv\Scripts\Activate.ps1
+(.venv) PS C:\RPA\AgenticRAG> local-rag bootstrap --config config.windows.yaml
+               Bootstrap checks
+┌────────────────────────────────────┬────────┐
+│ Check                              │ Status │
+├────────────────────────────────────┼────────┤
+│ Python >= 3.11                     │ ok     │
+│ Ollama installed                   │ ok     │
+│ Chat model `qwen3:4b`              │ ok     │
+│ Embedding model `nomic-embed-text` │ ok     │
+│ Ingest strategy                    │ local  │
+│ Vector backend `numpy`             │ ok     │
+└────────────────────────────────────┴────────┘
+┌─────────────────────────────────────────────────────── Notes ───────────────────────────────────────────────────────┐
+│ Configured ingest mode: local heuristic chunking and metadata.                                                      │
+│ Configured model profile: profile=small chat_model=qwen3:4b embedding_model=nomic-embed-text                        │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+(.venv) PS C:\RPA\AgenticRAG> local-rag ingest --config config.windows.yaml
+┌──────────────────────────────────────────────────── Ingest mode ────────────────────────────────────────────────────┐
+│ Local heuristic ingest is active.                                                                                   │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────── Agent mode ─────────────────────────────────────────────────────┐
+│ configured=middleweight | active=middleweight                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+  Ingestion report
+┌───────────┬───────┐
+│ Category  │ Count │
+├───────────┼───────┤
+│ Processed │ 4     │
+│ Skipped   │ 0     │
+│ Deleted   │ 0     │
+│ Errors    │ 0     │
+└───────────┴───────┘
+(.venv) PS C:\RPA\AgenticRAG> local-rag serve-web --config config.windows.yaml
+←[32mINFO←[0m:     Started server process [←[36m11564←[0m]
+←[32mINFO←[0m:     Waiting for application startup.
+←[32mINFO←[0m:     Application startup complete.
+←[32mINFO←[0m:     Uvicorn running on ←[1mhttp://127.0.0.1:3000←[0m (Press CTRL+C to quit)
+←[32mINFO←[0m:     127.0.0.1:61320 - "←[1mGET / HTTP/1.1←[0m" ←[32m200 OK←[0m
+←[32mINFO←[0m:     127.0.0.1:61320 - "←[1mGET /assets/index-fsKfvviI.js HTTP/1.1←[0m" ←[33m304 Not Modified←[0m
+←[32mINFO←[0m:     127.0.0.1:61321 - "←[1mGET /assets/index-BBGiPEf0.css HTTP/1.1←[0m" ←[33m304 Not Modified←[0m
+←[32mINFO←[0m:     127.0.0.1:61321 - "←[1mGET /api/status HTTP/1.1←[0m" ←[32m200 OK←[0m
+←[32mINFO←[0m:     127.0.0.1:61320 - "←[1mGET /favicon.ico HTTP/1.1←[0m" ←[32m200 OK←[0m
+←[32mINFO←[0m:     127.0.0.1:61320 - "←[1mPOST /api/suggested-prompts HTTP/1.1←[0m" ←[32m200 OK←[0m
+←[32mINFO←[0m:     127.0.0.1:61328 - "←[1mPOST /api/ingest HTTP/1.1←[0m" ←[32m200 OK←[0m
+←[32mINFO←[0m:     127.0.0.1:61328 - "←[1mPOST /api/suggested-prompts HTTP/1.1←[0m" ←[32m200 OK←[0m
+←[32mINFO←[0m:     127.0.0.1:61345 - "←[1mPOST /api/ask HTTP/1.1←[0m" ←[32m200 OK←[0m
+
+
+
+

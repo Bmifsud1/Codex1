@@ -1,0 +1,122 @@
+Absolutely — here’s the full start-to-finish runbook of what we did, cleaned up into one sequence.
+
+0) Get project in place
+You copied the repo files locally into:
+
+C:\RPA\AgenticRAG
+
+1) Python environment setup (Windows)
+Checked installed Python versions with py list.
+
+Selected Python 3.12 (compatible with project requirement >=3.11,<3.14).
+
+Created and activated venv:
+
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+Installed dependencies:
+
+pip install -r requirements-dev.txt
+2) Frontend prerequisites (Node/npm)
+npm was missing initially.
+
+Installed Node LTS via winget.
+
+Verified:
+
+node -v
+npm -v
+Built frontend:
+
+cd web
+npm install
+npm run build
+cd ..
+3) Bootstrap crash fix on Windows (which command issue)
+You hit this error during local-rag bootstrap:
+
+FileNotFoundError from subprocess.run(["which", "ollama"]) (Unix-only command)
+
+Fix implemented
+Changed Ollama detection from shell which to cross-platform shutil.which("ollama").
+
+Added a unit test to lock the behavior.
+
+Validation
+pytest tests/unit/test_bootstrap.py tests/unit/test_cli.py -q
+Passed (..).
+
+4) Ensure local code is what CLI uses
+You were still running old package code from site-packages, so we reinstalled editable:
+
+pip uninstall -y local-agentic-rag
+pip install -e .
+python -c "import local_agentic_rag,inspect; print(local_agentic_rag.__file__)"
+Verified it pointed to your local repo:
+C:\RPA\AgenticRAG\src\local_agentic_rag\__init__.py
+
+5) Windows-friendly config (avoid FAISS friction)
+Created config.windows.yaml based on small config, but with:
+
+chat_model: qwen3:4b
+
+embedding_model: nomic-embed-text
+
+retrieval.vector_backend: numpy (instead of faiss).
+
+6) Ollama installation + model setup
+Installed Ollama on Windows.
+
+If ollama command not found: opened a new PowerShell (PATH refresh).
+
+Verified:
+
+ollama --version
+Pulled models:
+
+ollama pull qwen3:4b
+ollama pull nomic-embed-text
+Accidentally pulled qwen:4b, then removed:
+
+ollama rm qwen:4b
+7) Ollama connectivity check
+PowerShell curl warning came from alias (Invoke-WebRequest), so we used:
+
+Invoke-WebRequest -UseBasicParsing http://127.0.0.1:11434/api/tags
+Got StatusCode 200 with model list — confirmed Ollama server reachable.
+
+8) End-to-end app run (successful)
+With venv active:
+
+local-rag bootstrap --config config.windows.yaml
+local-rag ingest --config config.windows.yaml
+local-rag serve-web --config config.windows.yaml
+Results:
+
+Bootstrap all green (Python, Ollama, chat model, embed model, numpy backend)
+
+Ingest succeeded
+
+Web server started on http://127.0.0.1:3000
+
+9) Browser usage flow
+Open http://127.0.0.1:3000
+
+Use sample prompts first
+
+Then test your own folder via Choose folder or Index pasted path
+
+If ever seeing “Indexed 0 files,” inspect ingest errors and/or CLI ingest output
+
+Key pitfalls we solved
+Python version mismatch (3.14 incompatible)
+
+Missing npm / Node
+
+Windows PATH refresh after installers
+
+CLI using stale installed package instead of local source
+
+Unix-specific which call crashing bootstrap on Windows
+
+PowerShell curl alias security warning confusion
